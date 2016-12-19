@@ -1,17 +1,17 @@
 <?php
 
-namespace OCA\OJSXC\StanzaHandlers;
+namespace OCA\NJSXC\StanzaHandlers;
 
-use OCA\OJSXC\Db\MessageMapper;
-use OCA\OJSXC\Db\PresenceMapper;
+use OCA\NJSXC\Db\MessageMapper;
+use OCA\NJSXC\Db\PresenceMapper;
 use Sabre\Xml\Reader;
 use Sabre\Xml\Writer;
-use OCA\OJSXC\Db\Presence as PresenceEntity;
+use OCA\NJSXC\Db\Presence as PresenceEntity;
 
 /**
  * Class Presence
  *
- * @package OCA\OJSXC\StanzaHandlers
+ * @package OCA\NJSXC\StanzaHandlers
  */
 class Presence extends StanzaHandler {
 

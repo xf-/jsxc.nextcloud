@@ -1,8 +1,8 @@
 <?php
 
-namespace OCA\OJSXC\StanzaHandlers;
+namespace OCA\NJSXC\StanzaHandlers;
 
-use OCA\OJSXC\Db\IQRoster;
+use OCA\NJSXC\Db\IQRoster;
 use PHPUnit_Framework_MockObject_MockObject;
 use PHPUnit_Framework_TestCase;
 

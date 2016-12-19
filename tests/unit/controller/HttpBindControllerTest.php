@@ -1,12 +1,12 @@
 <?php
-namespace OCA\OJSXC\Controller;
+namespace OCA\NJSXC\Controller;
 
-use OCA\OJSXC\Db\Message;
-use OCA\OJSXC\Db\Presence;
-use OCA\OJSXC\Db\Stanza;
-use OCA\OJSXC\Db\StanzaMapper;
-use OCA\OJSXC\Http\XMPPResponse;
-use OCA\OJSXC\StanzaHandlers\IQ;
+use OCA\NJSXC\Db\Message;
+use OCA\NJSXC\Db\Presence;
+use OCA\NJSXC\Db\Stanza;
+use OCA\NJSXC\Db\StanzaMapper;
+use OCA\NJSXC\Http\XMPPResponse;
+use OCA\NJSXC\StanzaHandlers\IQ;
 use OCP\AppFramework\Db\DoesNotExistException;
 use PHPUnit_Framework_TestCase;
 use Sabre\Xml\Writer;
@@ -77,19 +77,19 @@ class HttpBindControllerTest extends PHPUnit_Framework_TestCase {
 	 */
 	private function setUpController($requestBody) {
 		$request = $this->getMockBuilder('OCP\IRequest')->disableOriginalConstructor()->getMock();
-		$this->stanzaMapper = $this->getMockBuilder('OCA\OJSXC\Db\StanzaMapper')->disableOriginalConstructor()->getMock();
-		$this->presenceMapper = $this->getMockBuilder('OCA\OJSXC\Db\PresenceMapper')->disableOriginalConstructor()->getMock();
+		$this->stanzaMapper = $this->getMockBuilder('OCA\NJSXC\Db\StanzaMapper')->disableOriginalConstructor()->getMock();
+		$this->presenceMapper = $this->getMockBuilder('OCA\NJSXC\Db\PresenceMapper')->disableOriginalConstructor()->getMock();
 
-		$this->iqHandler = $this->getMockBuilder('OCA\OJSXC\StanzaHandlers\IQ')->disableOriginalConstructor()->getMock();
-		$this->messageHandler = $this->getMockBuilder('OCA\OJSXC\StanzaHandlers\Message')->disableOriginalConstructor()->getMock();
-		$this->presenceHandler = $this->getMockBuilder('OCA\OJSXC\StanzaHandlers\Presence')->disableOriginalConstructor()->getMock();
-		$this->lock = $this->getMockBuilder('OCA\OJSXC\ILock')->disableOriginalConstructor()->getMock();
-		$this->newContentContainer = $this->getMockBuilder('OCA\OJSXC\NewContentContainer')->disableOriginalConstructor()->getMock();
+		$this->iqHandler = $this->getMockBuilder('OCA\NJSXC\StanzaHandlers\IQ')->disableOriginalConstructor()->getMock();
+		$this->messageHandler = $this->getMockBuilder('OCA\NJSXC\StanzaHandlers\Message')->disableOriginalConstructor()->getMock();
+		$this->presenceHandler = $this->getMockBuilder('OCA\NJSXC\StanzaHandlers\Presence')->disableOriginalConstructor()->getMock();
+		$this->lock = $this->getMockBuilder('OCA\NJSXC\ILock')->disableOriginalConstructor()->getMock();
+		$this->newContentContainer = $this->getMockBuilder('OCA\NJSXC\NewContentContainer')->disableOriginalConstructor()->getMock();
 
 		$logger = \OC::$server->getLogger();
 
 		$this->controller = new HttpBindController(
-			'ojsxc',
+			'njsxc',
 			$request,
 			$this->userId,
 			$this->stanzaMapper,
@@ -145,7 +145,7 @@ class HttpBindControllerTest extends PHPUnit_Framework_TestCase {
 				->method('handle')
 				->will($this->returnValue($result));
 
-		$r1 = $this->getMockBuilder('OCA\OJSXC\Db\Stanza')->disableOriginalConstructor()->getMock();
+		$r1 = $this->getMockBuilder('OCA\NJSXC\Db\Stanza')->disableOriginalConstructor()->getMock();
 		$r1->expects($this->once())
 				->method('xmlSerialize')
 				->will($this->returnCallback(function(Writer $writer){
@@ -185,7 +185,7 @@ class HttpBindControllerTest extends PHPUnit_Framework_TestCase {
 				->method('handle')
 				->will($this->returnValue($result));
 
-		$r1 = $this->getMockBuilder('OCA\OJSXC\Db\Stanza')->disableOriginalConstructor()->getMock();
+		$r1 = $this->getMockBuilder('OCA\NJSXC\Db\Stanza')->disableOriginalConstructor()->getMock();
 		$r1->expects($this->once())
 				->method('xmlSerialize')
 				->will($this->returnCallback(function(Writer $writer){
@@ -228,8 +228,8 @@ class HttpBindControllerTest extends PHPUnit_Framework_TestCase {
 	/**
 	 * When invalid XML, just start long polling.
 	 * Note: this test will cause some errors in the owncloud.log:
-	 * {"reqId":"HmbEV6qTWF68ii1G\/kz1","remoteAddr":"","app":"PHP","message":"XMLReader::read(): An Error Occured while reading at \/var\/www\/owncloud\/apps\/ojsxc\/vendor\/sabre\/xml\/lib\/Reader.php#66","level":0,"time":"2016-01-30T14:52:44+00:00","method":"--","url":"--"}
-	 * {"reqId":"HmbEV6qTWF68ii1G\/kz1","remoteAddr":"","app":"PHP","message":"XMLReader::read(): An Error Occured while reading at \/var\/www\/owncloud\/apps\/ojsxc\/vendor\/sabre\/xml\/lib\/Reader.php#145","level":0,"time":"2016-01-30T14:52:44+00:00","method":"--","url":"--"}
+	 * {"reqId":"HmbEV6qTWF68ii1G\/kz1","remoteAddr":"","app":"PHP","message":"XMLReader::read(): An Error Occured while reading at \/var\/www\/owncloud\/apps\/njsxc\/vendor\/sabre\/xml\/lib\/Reader.php#66","level":0,"time":"2016-01-30T14:52:44+00:00","method":"--","url":"--"}
+	 * {"reqId":"HmbEV6qTWF68ii1G\/kz1","remoteAddr":"","app":"PHP","message":"XMLReader::read(): An Error Occured while reading at \/var\/www\/owncloud\/apps\/njsxc\/vendor\/sabre\/xml\/lib\/Reader.php#145","level":0,"time":"2016-01-30T14:52:44+00:00","method":"--","url":"--"}
 	 */
 	public function testInvalidXML() {
 		$ex = new DoesNotExistException('');
@@ -319,7 +319,7 @@ class HttpBindControllerTest extends PHPUnit_Framework_TestCase {
 			->method('handle')
 			->will($this->returnValue($result));
 
-		$r1 = $this->getMockBuilder('OCA\OJSXC\Db\Stanza')->disableOriginalConstructor()->getMock();
+		$r1 = $this->getMockBuilder('OCA\NJSXC\Db\Stanza')->disableOriginalConstructor()->getMock();
 		$r1->expects($this->once())
 			->method('xmlSerialize')
 			->will($this->returnCallback(function(Writer $writer){
@@ -438,7 +438,7 @@ XML;
 		$this->messageHandler->expects($this->once())
 			->method('handle');
 
-		$r1 = $this->getMockBuilder('OCA\OJSXC\Db\Stanza')->disableOriginalConstructor()->getMock();
+		$r1 = $this->getMockBuilder('OCA\NJSXC\Db\Stanza')->disableOriginalConstructor()->getMock();
 		$r1->expects($this->once())
 			->method('xmlSerialize')
 			->will($this->returnCallback(function(Writer $writer){

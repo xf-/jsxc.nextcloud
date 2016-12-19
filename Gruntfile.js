@@ -14,7 +14,7 @@ module.exports = function(grunt) {
          gruntfile: {
             src: 'Gruntfile.js'
          },
-         files: [ 'js/ojsxc.js' ]
+         files: [ 'js/njsxc.js' ]
       },
       copy: {
          build: {
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
                banner: '<%= meta.banner %>'
             },
             files: {
-               src: [ 'build/js/*.js', 'build/css/jsxc.oc.css' ]
+               src: [ 'build/js/*.js', 'build/css/jsxc.nextcloud.css' ]
             }
          }
       },
@@ -107,12 +107,12 @@ module.exports = function(grunt) {
       compress: {
          main: {
             options: {
-               archive: "archives/ojsxc-<%= app.version %>.zip"
+               archive: "archives/njsxc-<%= app.version %>.zip"
             },
             files: [ {
                src: [ '**' ],
                expand: true,
-               dest: 'ojsxc/',
+               dest: 'njsxc/',
                cwd: 'build/'
             } ]
          }
@@ -125,13 +125,13 @@ module.exports = function(grunt) {
       sass: {
          dist: {
              files: {
-                'css/jsxc.oc.css': 'scss/jsxc.oc.scss'
+                'css/jsxc.nextcloud.css': 'scss/jsxc.nextcloud.scss'
              }
          }
        },
        dataUri: {
           dist: {
-            src: 'css/jsxc.oc.css',
+            src: 'css/jsxc.nextcloud.css',
             dest: 'build/css/',
             options: {
               target: ['img/*.*', 'js/jsxc/img/*.*', 'js/jsxc/img/**/*.*'],

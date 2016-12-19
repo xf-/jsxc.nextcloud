@@ -1,11 +1,11 @@
 <?php
 
-namespace OCA\OJSXC\Db;
+namespace OCA\NJSXC\Db;
 
 /**
  * Class MessageMapper
  *
- * @package OCA\OJSXC\Db
+ * @package OCA\NJSXC\Db
  */
 class MessageMapper extends StanzaMapper {
 

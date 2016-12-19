@@ -1,8 +1,8 @@
 <?php
 
-namespace OCA\OJSXC\StanzaHandlers;
+namespace OCA\NJSXC\StanzaHandlers;
 
-use OCA\OJSXC\Db\IQRoster;
+use OCA\NJSXC\Db\IQRoster;
 use OCP\IUserManager;
 use Sabre\Xml\Reader;
 use Sabre\Xml\Writer;
@@ -10,7 +10,7 @@ use Sabre\Xml\Writer;
 /**
  * Class IQ
  *
- * @package OCA\OJSXC\StanzaHandlers
+ * @package OCA\NJSXC\StanzaHandlers
  */
 class IQ extends StanzaHandler {
 

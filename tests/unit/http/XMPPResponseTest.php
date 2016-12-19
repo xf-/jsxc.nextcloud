@@ -1,16 +1,16 @@
 <?php
 
-namespace  OCA\OJSXC\Db {
+namespace  OCA\NJSXC\Db {
 	function uniqid() {
 		return 4; // chosen by fair dice roll.
 		// guaranteed to be unique.
 	}
 }
 
-namespace OCA\OJSXC\Http {
+namespace OCA\NJSXC\Http {
 
-	use OCA\OJSXC\Db\Message;
-	use OCA\OJSXC\Db\Stanza;
+	use OCA\NJSXC\Db\Message;
+	use OCA\NJSXC\Db\Stanza;
 	use PHPUnit_Framework_TestCase;
 
 

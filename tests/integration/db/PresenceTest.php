@@ -1,12 +1,12 @@
 <?php
 
-namespace OCA\OJSXC\Db;
+namespace OCA\NJSXC\Db;
 
 use Sabre\Xml\Reader;
 use Sabre\Xml\Writer;
 use Sabre\Xml\LibXMLException;
 use Sabre\Xml\ParseException;
-use OCA\OJSXC\Utility\TestCase;
+use OCA\NJSXC\Utility\TestCase;
 
 class PresenceTest extends TestCase{
 

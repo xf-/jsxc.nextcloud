@@ -12,9 +12,9 @@ git clone https://github.com/owncloud/core.git --recursive --depth 1 -b $BRANCH 
 cd owncloud
 cp -r ../jsxc.chat/tests/travis/autoconfig-stable8-mysql.php config/autoconfig.php
 php -f index.php
-#enable ojsxc
-mv ../jsxc.chat apps/ojsxc
-php -f console.php app:enable ojsxc
+#enable njsxc
+mv ../jsxc.chat apps/njsxc
+php -f console.php app:enable njsxc
 
-cd apps/ojsxc
+cd apps/njsxc
 

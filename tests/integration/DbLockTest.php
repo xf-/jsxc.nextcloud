@@ -1,10 +1,10 @@
 <?php
-namespace OCA\OJSXC;
+namespace OCA\NJSXC;
 
 use OCP\AppFramework\Db\DoesNotExistException;
 use Test\TestCase;
-use OCA\OJSXC\AppInfo\Application;
-use OCA\OJSXC\DbLock;
+use OCA\NJSXC\AppInfo\Application;
+use OCA\NJSXC\DbLock;
 
 $time = 0;
 
@@ -19,12 +19,12 @@ function time() {
 class DbLockTest extends TestCase {
 
 	/**
-	 * @var \OCA\OJSXC\DbLock
+	 * @var \OCA\NJSXC\DbLock
 	 */
 	private $dbLock;
 
 	/**
-	 * @var \OCA\OJSXC\DbLock
+	 * @var \OCA\NJSXC\DbLock
 	 */
 	private $dbLock2;
 
@@ -38,7 +38,7 @@ class DbLockTest extends TestCase {
 		$app = new Application();
 		$this->container = $app->getContainer();
 		$this->con = $this->container->getServer()->getDatabaseConnection();
-		$this->con->executeQuery("DELETE FROM `*PREFIX*preferences` WHERE `appid`='ojsxc' AND `configkey`='longpolling'");
+		$this->con->executeQuery("DELETE FROM `*PREFIX*preferences` WHERE `appid`='njsxc' AND `configkey`='longpolling'");
 	}
 
 	/**
@@ -57,7 +57,7 @@ class DbLockTest extends TestCase {
 		$result = $this->fetchLocks();
 		$this->assertCount(1, $result);
 		$this->assertEquals($result[0]['userid'], 'john');
-		$this->assertEquals($result[0]['appid'], 'ojsxc');
+		$this->assertEquals($result[0]['appid'], 'njsxc');
 		$this->assertEquals($result[0]['configkey'], 'longpolling');
 		$this->assertEquals($result[0]['configvalue'], '4');
 		$this->assertTrue($this->dbLock->stillLocked());
@@ -76,7 +76,7 @@ class DbLockTest extends TestCase {
 		$result = $this->fetchLocks();
 		$this->assertCount(1, $result);
 		$this->assertEquals($result[0]['userid'], 'john');
-		$this->assertEquals($result[0]['appid'], 'ojsxc');
+		$this->assertEquals($result[0]['appid'], 'njsxc');
 		$this->assertEquals($result[0]['configkey'], 'longpolling');
 		$this->assertEquals($result[0]['configvalue'], '5');
 		$this->assertTrue($this->dbLock2->stillLocked());
@@ -84,7 +84,7 @@ class DbLockTest extends TestCase {
 	}
 
 	private function  fetchLocks() {
-		$stmt = $this->con->executeQuery("SELECT * FROM `*PREFIX*preferences` WHERE `appid`='ojsxc' AND `configkey`='longpolling'");
+		$stmt = $this->con->executeQuery("SELECT * FROM `*PREFIX*preferences` WHERE `appid`='njsxc' AND `configkey`='longpolling'");
 
 		$reuslt = [];
 

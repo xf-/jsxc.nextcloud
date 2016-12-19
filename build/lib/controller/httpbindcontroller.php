@@ -1,18 +1,18 @@
 <?php
 
-namespace OCA\OJSXC\Controller;
+namespace OCA\NJSXC\Controller;
 
-use OCA\OJSXC\Db\Presence;
-use OCA\OJSXC\Db\PresenceMapper;
-use OCA\OJSXC\Db\StanzaMapper;
-use OCA\OJSXC\Db\MessageMapper;
-use OCA\OJSXC\Exceptions\NewContentException;
-use OCA\OJSXC\Http\XMPPResponse;
-use OCA\OJSXC\ILock;
-use OCA\OJSXC\NewContentContainer;
-use OCA\OJSXC\StanzaHandlers\IQ;
-use OCA\OJSXC\StanzaHandlers\Message;
-use OCA\OJSXC\StanzaHandlers\Presence as PresenceHandler;
+use OCA\NJSXC\Db\Presence;
+use OCA\NJSXC\Db\PresenceMapper;
+use OCA\NJSXC\Db\StanzaMapper;
+use OCA\NJSXC\Db\MessageMapper;
+use OCA\NJSXC\Exceptions\NewContentException;
+use OCA\NJSXC\Http\XMPPResponse;
+use OCA\NJSXC\ILock;
+use OCA\NJSXC\NewContentContainer;
+use OCA\NJSXC\StanzaHandlers\IQ;
+use OCA\NJSXC\StanzaHandlers\Message;
+use OCA\NJSXC\StanzaHandlers\Presence as PresenceHandler;
 use OCP\AppFramework\Controller;
 use OCP\AppFramework\Db\DoesNotExistException;
 use OCP\ILogger;
@@ -26,7 +26,7 @@ use Sabre\Xml\LibXMLException;
 /**
  * Class HttpBindController
  *
- * @package OCA\OJSXC\Controller
+ * @package OCA\NJSXC\Controller
  */
 class HttpBindController extends Controller {
 
@@ -57,12 +57,12 @@ class HttpBindController extends Controller {
 	private $session;
 
 	/**
-	 * @var MessageMapper OCA\OJSXC\Db\MessageMapper
+	 * @var MessageMapper OCA\NJSXC\Db\MessageMapper
 	 */
 	private $messageMapper;
 
 	/**
-	 * @var StanzaMapper OCA\OJSXC\Db\StanzaMapper
+	 * @var StanzaMapper OCA\NJSXC\Db\StanzaMapper
 	 */
 	private $stanzaMapper;
 

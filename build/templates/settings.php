@@ -1,6 +1,6 @@
 <div class="section">
 	<h2>JavaScript Xmpp Client</h2>
-	<form id="ojsxc">
+	<form id="njsxc">
 		<div class="form-group">
 			<input type="radio" name="serverType" id="serverTypeInternal" required="required" value="internal" <?php if($_['serverType'] === 'internal')echo 'checked'; ?> />
 			<label for="serverTypeInternal">Internal (Experimental)</label>
@@ -12,11 +12,11 @@
 			<em>Choose this option to use your own XMPP server.</em>
 		</div>
 		
-		<div class="ojsxc-internal hidden">
+		<div class="njsxc-internal hidden">
 
 		</div>
 		
-		<div class="ojsxc-external hidden">
+		<div class="njsxc-external hidden">
 			<div class="form-group">
 				<label for="xmppDomain">* XMPP domain</label>
 				<input type="text" name="xmppDomain" id="xmppDomain" class="required" required="required" value="<?php p($_['xmppDomain']); ?>" />

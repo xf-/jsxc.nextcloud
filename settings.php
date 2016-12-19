@@ -2,21 +2,21 @@
 
 OCP\User::checkAdminUser();
 
-OCP\Util::addScript('ojsxc', 'admin');
+OCP\Util::addScript('njsxc', 'admin');
 
 $config = \OC::$server->getConfig();
-$tmpl = new OCP\Template('ojsxc', 'settings');
+$tmpl = new OCP\Template('njsxc', 'settings');
 
-$tmpl->assign('serverType', $config->getAppValue('ojsxc', 'serverType'));
-$tmpl->assign('boshUrl', $config->getAppValue('ojsxc', 'boshUrl'));
-$tmpl->assign('xmppDomain', $config->getAppValue('ojsxc', 'xmppDomain'));
-$tmpl->assign('xmppResource', $config->getAppValue('ojsxc', 'xmppResource'));
-$tmpl->assign('xmppOverwrite', $config->getAppValue('ojsxc', 'xmppOverwrite'));
-$tmpl->assign('xmppStartMinimized', $config->getAppValue('ojsxc', 'xmppStartMinimized'));
-$tmpl->assign('iceUrl', $config->getAppValue('ojsxc', 'iceUrl'));
-$tmpl->assign('iceUsername', $config->getAppValue('ojsxc', 'iceUsername'));
-$tmpl->assign('iceCredential', $config->getAppValue('ojsxc', 'iceCredential'));
-$tmpl->assign('iceSecret', $config->getAppValue('ojsxc', 'iceSecret'));
-$tmpl->assign('iceTtl', $config->getAppValue('ojsxc', 'iceTtl'));
+$tmpl->assign('serverType', $config->getAppValue('njsxc', 'serverType'));
+$tmpl->assign('boshUrl', $config->getAppValue('njsxc', 'boshUrl'));
+$tmpl->assign('xmppDomain', $config->getAppValue('njsxc', 'xmppDomain'));
+$tmpl->assign('xmppResource', $config->getAppValue('njsxc', 'xmppResource'));
+$tmpl->assign('xmppOverwrite', $config->getAppValue('njsxc', 'xmppOverwrite'));
+$tmpl->assign('xmppStartMinimized', $config->getAppValue('njsxc', 'xmppStartMinimized'));
+$tmpl->assign('iceUrl', $config->getAppValue('njsxc', 'iceUrl'));
+$tmpl->assign('iceUsername', $config->getAppValue('njsxc', 'iceUsername'));
+$tmpl->assign('iceCredential', $config->getAppValue('njsxc', 'iceCredential'));
+$tmpl->assign('iceSecret', $config->getAppValue('njsxc', 'iceSecret'));
+$tmpl->assign('iceTtl', $config->getAppValue('njsxc', 'iceTtl'));
 
 return $tmpl->fetchPage();

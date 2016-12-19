@@ -1,14 +1,14 @@
 <?php
-namespace OCA\OJSXC\Http;
+namespace OCA\NJSXC\Http;
 
 use OCP\AppFramework\Http\Response;
 use Sabre\Xml\Writer;
-use OCA\OJSXC\Db\Stanza;
+use OCA\NJSXC\Db\Stanza;
 
 /**
  * Class XMPPResponse
  *
- * @package OCA\OJSXC\Http
+ * @package OCA\NJSXC\Http
  */
 class XMPPResponse extends Response {
 

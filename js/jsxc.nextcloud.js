@@ -2,7 +2,7 @@
 /* jshint latedef: nofunc */
 
 /**
- * Make room for the roster inside the owncloud template.
+ * Make room for the roster inside the nextcloud template.
  *
  * @param {type} event
  * @param {type} state State in which the roster is
@@ -45,7 +45,7 @@ function onRosterToggle(event, state, duration) {
 }
 
 /**
- * Init owncloud template for roster.
+ * Init nextcloud template for roster.
  *
  * @returns {undefined}
  */
@@ -145,7 +145,7 @@ $(function() {
    });
 
    jsxc.init({
-      app_name: 'Owncloud',
+      app_name: 'Nextcloud',
       loginForm: {
          form: '#body-login form',
          jid: '#user',
@@ -155,9 +155,9 @@ $(function() {
       },
       logoutElement: $('#logout'),
       rosterAppend: 'body',
-      root: oc_appswebroots.ojsxc + '/js/jsxc',
+      root: oc_appswebroots.njsxc + '/js/jsxc',
       RTCPeerConfig: {
-         url: OC.filePath('ojsxc', 'ajax', 'getTurnCredentials.php')
+         url: OC.filePath('njsxc', 'ajax', 'getTurnCredentials.php')
       },
       displayRosterMinimized: function() {
          return OC.currentUser != null;
@@ -209,7 +209,7 @@ $(function() {
       loadSettings: function(username, password, cb) {
          $.ajax({
             type: 'POST',
-            url: OC.filePath('ojsxc', 'ajax', 'getSettings.php'),
+            url: OC.filePath('njsxc', 'ajax', 'getSettings.php'),
             data: {
                username: username,
                password: password
@@ -226,7 +226,7 @@ $(function() {
                   jsxc.storage.setItem('rid', '123456');
 
                   jsxc.options.set('xmpp', {
-                     url: OC.generateUrl('apps/ojsxc/http-bind')
+                     url: OC.generateUrl('apps/njsxc/http-bind')
                   });
                   if (d.data.loginForm) {
                      jsxc.options.set('loginForm', {
@@ -249,7 +249,7 @@ $(function() {
       saveSettinsPermanent: function(data, cb) {
          $.ajax({
             type: 'POST',
-            url: OC.filePath('ojsxc', 'ajax', 'setUserSettings.php'),
+            url: OC.filePath('njsxc', 'ajax', 'setUserSettings.php'),
             data: data,
             success: function(data) {
                cb(data.trim() === 'true');
@@ -262,7 +262,7 @@ $(function() {
       getUsers: function(search, cb) {
          $.ajax({
             type: 'GET',
-            url: OC.filePath('ojsxc', 'ajax', 'getUsers.php'),
+            url: OC.filePath('njsxc', 'ajax', 'getUsers.php'),
             data: {
                search: search
             },

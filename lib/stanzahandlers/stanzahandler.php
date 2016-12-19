@@ -1,5 +1,5 @@
 <?php
-namespace OCA\OJSXC\StanzaHandlers;
+namespace OCA\NJSXC\StanzaHandlers;
 
 use Sabre\Xml\Reader;
 use Sabre\Xml\Writer;
@@ -7,7 +7,7 @@ use Sabre\Xml\Writer;
 /**
  * Class StanzaHandler
  *
- * @package OCA\OJSXC\StanzaHandlers
+ * @package OCA\NJSXC\StanzaHandlers
  */
 class StanzaHandler {
 

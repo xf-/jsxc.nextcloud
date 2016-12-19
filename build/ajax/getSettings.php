@@ -27,8 +27,8 @@ $config = \OC::$server->getConfig();
 
 $data = array();
 $data ['xmpp'] = array();
-$data ['serverType'] = $config->getAppValue('ojsxc', 'serverType', 'external');
-$data ['loginForm'] ['startMinimized'] = validateBoolean($config->getAppValue('ojsxc', 'xmppStartMinimized'));
+$data ['serverType'] = $config->getAppValue('njsxc', 'serverType', 'external');
+$data ['loginForm'] ['startMinimized'] = validateBoolean($config->getAppValue('njsxc', 'xmppStartMinimized'));
 
 if ($data ['serverType'] === 'internal') {
     echo json_encode(array(
@@ -39,13 +39,13 @@ if ($data ['serverType'] === 'internal') {
     exit;
 }
 
-$data ['xmpp'] ['url'] = $config->getAppValue('ojsxc', 'boshUrl');
-$data ['xmpp'] ['domain'] = $config->getAppValue('ojsxc', 'xmppDomain');
-$data ['xmpp'] ['resource'] = $config->getAppValue('ojsxc', 'xmppResource');
-$data ['xmpp'] ['overwrite'] = validateBoolean($config->getAppValue('ojsxc', 'xmppOverwrite'));
+$data ['xmpp'] ['url'] = $config->getAppValue('njsxc', 'boshUrl');
+$data ['xmpp'] ['domain'] = $config->getAppValue('njsxc', 'xmppDomain');
+$data ['xmpp'] ['resource'] = $config->getAppValue('njsxc', 'xmppResource');
+$data ['xmpp'] ['overwrite'] = validateBoolean($config->getAppValue('njsxc', 'xmppOverwrite'));
 $data ['xmpp'] ['onlogin'] = true;
 
-$options = $config->getUserValue($username, 'ojsxc', 'options');
+$options = $config->getUserValue($username, 'njsxc', 'options');
 
 if ($options !== null) {
     $options = (array) json_decode($options, true);

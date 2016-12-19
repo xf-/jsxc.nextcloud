@@ -1,8 +1,8 @@
 <?php
 
-namespace OCA\OJSXC\StanzaHandlers;
+namespace OCA\NJSXC\StanzaHandlers;
 
-use OCA\OJSXC\Db\Message as MessageEntity;
+use OCA\NJSXC\Db\Message as MessageEntity;
 use PHPUnit_Framework_TestCase;
 use PHPUnit_Framework_MockObject_MockObject;
 
@@ -31,7 +31,7 @@ class MessageTest extends PHPUnit_Framework_TestCase {
 	public function setUp() {
 		$this->host = 'localhost';
 		$this->userId = 'john';
-		$this->messageMapper = $this->getMockBuilder('OCA\OJSXC\Db\MessageMapper')->disableOriginalConstructor()->getMock();
+		$this->messageMapper = $this->getMockBuilder('OCA\NJSXC\Db\MessageMapper')->disableOriginalConstructor()->getMock();
 		$this->message = new Message($this->userId, $this->host, $this->messageMapper);
 	}
 

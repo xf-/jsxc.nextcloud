@@ -1,10 +1,10 @@
 <?php
-namespace OCA\OJSXC;
+namespace OCA\NJSXC;
 
 use OCP\AppFramework\Db\DoesNotExistException;
 use Test\TestCase;
-use OCA\OJSXC\AppInfo\Application;
-use OCA\OJSXC\MemLock;
+use OCA\NJSXC\AppInfo\Application;
+use OCA\NJSXC\MemLock;
 
 //function time() {
 //	return DbLockTest::$time;
@@ -16,12 +16,12 @@ use OCA\OJSXC\MemLock;
 class MemLockTest extends TestCase {
 
 	/**
-	 * @var \OCA\OJSXC\MemLock
+	 * @var \OCA\NJSXC\MemLock
 	 */
 	private $memLock;
 
 	/**
-	 * @var \OCA\OJSXC\MemLock
+	 * @var \OCA\NJSXC\MemLock
 	 */
 	private $memLock2;
 
@@ -58,7 +58,7 @@ class MemLockTest extends TestCase {
 		$time = 4;
 		$cache = $this->container->getServer()->getMemCacheFactory();
 		if ($cache->isAvailable()) {
-			$this->memCache = $cache->create('ojsxc');
+			$this->memCache = $cache->create('njsxc');
 		} else {
 			die('No memcache available');
 		}

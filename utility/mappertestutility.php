@@ -1,8 +1,8 @@
 <?php
 
-namespace OCA\OJSXC\Utility;
+namespace OCA\NJSXC\Utility;
 
-use OCA\OJSXC\AppInfo\Application;
+use OCA\NJSXC\AppInfo\Application;
 
 /**
  * @group DB

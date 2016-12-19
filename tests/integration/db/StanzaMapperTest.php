@@ -1,8 +1,8 @@
 <?php
 
-namespace OCA\OJSXC\Db;
+namespace OCA\NJSXC\Db;
 
-use OCA\OJSXC\Utility\MapperTestUtility;
+use OCA\NJSXC\Utility\MapperTestUtility;
 use OCP\AppFramework\Db\DoesNotExistException;
 
 /**
@@ -16,7 +16,7 @@ class StanzaMapperTest extends MapperTestUtility {
 	protected $mapper;
 
 	protected function setUp() {
-		$this->entityName = 'OCA\OJSXC\Db\Stanza';
+		$this->entityName = 'OCA\NJSXC\Db\Stanza';
 		$this->mapperName = 'StanzaMapper';
 		parent::setUp();
 	}

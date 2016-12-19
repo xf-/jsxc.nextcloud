@@ -1,7 +1,7 @@
 <?php
 OCP\User::checkLoggedIn ();
 
-OCP\App::setActiveNavigationEntry ( 'ojsxc' );
-$tmpl = new OCP\Template ( 'ojsxc', 'main', 'user' );
+OCP\App::setActiveNavigationEntry ( 'njsxc' );
+$tmpl = new OCP\Template ( 'njsxc', 'main', 'user' );
 $tmpl->printPage ();
 ?>

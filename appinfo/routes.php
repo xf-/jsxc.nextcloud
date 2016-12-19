@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * ownCloud - JavaScript XMPP Chat
  *
@@ -8,22 +8,22 @@
  * @author Klaus Herberth
  */
 
-use \OCA\OJSXC\AppInfo\Application;
+use \OCA\NJSXC\AppInfo\Application;
 
-$this->create('ojsxc_ajax_getsettings', 'ajax/getSettings.php')
-	->actionInclude('ojsxc/ajax/getSettings.php');
+$this->create('njsxc_ajax_getsettings', 'ajax/getSettings.php')
+	->actionInclude('njsxc/ajax/getSettings.php');
 
-$this->create('ojsxc_ajax_getturncredentials', 'ajax/getTurnCredentials.php')
-	->actionInclude('ojsxc/ajax/getTurnCredentials.php');
+$this->create('njsxc_ajax_getturncredentials', 'ajax/getTurnCredentials.php')
+	->actionInclude('njsxc/ajax/getTurnCredentials.php');
 
-$this->create('ojsxc_ajax_setadminsettings', 'ajax/setAdminSettings.php')
-	->actionInclude('ojsxc/ajax/setAdminSettings.php');
+$this->create('njsxc_ajax_setadminsettings', 'ajax/setAdminSettings.php')
+	->actionInclude('njsxc/ajax/setAdminSettings.php');
 
-$this->create('ojsxc_ajax_setUserSettings', 'ajax/setUserSettings.php')
-	->actionInclude('ojsxc/ajax/setUserSettings.php');
+$this->create('njsxc_ajax_setUserSettings', 'ajax/setUserSettings.php')
+	->actionInclude('njsxc/ajax/setUserSettings.php');
 
-$this->create('ojsxc_ajax_getUsers', 'ajax/getUsers.php')
-	->actionInclude('ojsxc/ajax/getUsers.php');
+$this->create('njsxc_ajax_getUsers', 'ajax/getUsers.php')
+	->actionInclude('njsxc/ajax/getUsers.php');
 
 $application = new Application();
 $application->registerRoutes($this, array(

@@ -1,8 +1,8 @@
 <?php
-namespace OCA\OJSXC\Db;
+namespace OCA\NJSXC\Db;
 
 use Sabre\Xml\Writer;
-use OCA\OJSXC\Utility\TestCase;
+use OCA\NJSXC\Utility\TestCase;
 
 class IqRosterTest extends TestCase {
 

@@ -1,5 +1,5 @@
 /*!
- * ojsxc v3.0.1 - 2016-10-28
+ * njsxc v3.0.1 - 2016-10-28
  * 
  * Copyright (c) 2016 Klaus Herberth <klaus@jsxc.org> <br>
  * Released under the MIT license
@@ -168,9 +168,9 @@ $(function() {
       },
       logoutElement: $('#logout'),
       rosterAppend: 'body',
-      root: oc_appswebroots.ojsxc + '/js/jsxc',
+      root: oc_appswebroots.njsxc + '/js/jsxc',
       RTCPeerConfig: {
-         url: OC.filePath('ojsxc', 'ajax', 'getTurnCredentials.php')
+         url: OC.filePath('njsxc', 'ajax', 'getTurnCredentials.php')
       },
       displayRosterMinimized: function() {
          return OC.currentUser != null;
@@ -222,7 +222,7 @@ $(function() {
       loadSettings: function(username, password, cb) {
          $.ajax({
             type: 'POST',
-            url: OC.filePath('ojsxc', 'ajax', 'getSettings.php'),
+            url: OC.filePath('njsxc', 'ajax', 'getSettings.php'),
             data: {
                username: username,
                password: password
@@ -239,7 +239,7 @@ $(function() {
                   jsxc.storage.setItem('rid', '123456');
 
                   jsxc.options.set('xmpp', {
-                     url: OC.generateUrl('apps/ojsxc/http-bind')
+                     url: OC.generateUrl('apps/njsxc/http-bind')
                   });
                   if (d.data.loginForm) {
                      jsxc.options.set('loginForm', {
@@ -262,7 +262,7 @@ $(function() {
       saveSettinsPermanent: function(data, cb) {
          $.ajax({
             type: 'POST',
-            url: OC.filePath('ojsxc', 'ajax', 'setUserSettings.php'),
+            url: OC.filePath('njsxc', 'ajax', 'setUserSettings.php'),
             data: data,
             success: function(data) {
                cb(data.trim() === 'true');
@@ -275,7 +275,7 @@ $(function() {
       getUsers: function(search, cb) {
          $.ajax({
             type: 'GET',
-            url: OC.filePath('ojsxc', 'ajax', 'getUsers.php'),
+            url: OC.filePath('njsxc', 'ajax', 'getUsers.php'),
             data: {
                search: search
             },

@@ -1,11 +1,11 @@
 <?php
 
-namespace OCA\OJSXC;
+namespace OCA\NJSXC;
 
 /**
  * Interface ILock
  *
- * @package OCA\OJSXC
+ * @package OCA\NJSXC
  */
 interface ILock {
 

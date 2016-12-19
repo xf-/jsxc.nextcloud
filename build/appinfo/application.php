@@ -1,19 +1,19 @@
 <?php
 
-namespace OCA\OJSXC\AppInfo;
+namespace OCA\NJSXC\AppInfo;
 
-use OCA\OJSXC\Controller\HttpBindController;
-use OCA\OJSXC\Db\MessageMapper;
-use OCA\OJSXC\Db\PresenceMapper;
-use OCA\OJSXC\Db\StanzaMapper;
-use OCA\OJSXC\NewContentContainer;
-use OCA\OJSXC\StanzaHandlers\IQ;
-use OCA\OJSXC\StanzaHandlers\Message;
-use OCA\OJSXC\StanzaHandlers\Presence;
+use OCA\NJSXC\Controller\HttpBindController;
+use OCA\NJSXC\Db\MessageMapper;
+use OCA\NJSXC\Db\PresenceMapper;
+use OCA\NJSXC\Db\StanzaMapper;
+use OCA\NJSXC\NewContentContainer;
+use OCA\NJSXC\StanzaHandlers\IQ;
+use OCA\NJSXC\StanzaHandlers\Message;
+use OCA\NJSXC\StanzaHandlers\Presence;
 use OCP\AppFramework\App;
-use OCA\OJSXC\ILock;
-use OCA\OJSXC\DbLock;
-use OCA\OJSXC\MemLock;
+use OCA\NJSXC\ILock;
+use OCA\NJSXC\DbLock;
+use OCA\NJSXC\MemLock;
 use OCP\ICache;
 
 class Application extends App {
@@ -21,18 +21,18 @@ class Application extends App {
 	private static $config = [];
 
 	public function __construct(array $urlParams=array()){
-		parent::__construct('ojsxc', $urlParams);
+		parent::__construct('njsxc', $urlParams);
 		$container = $this->getContainer();
 
 		/** @var $config \OCP\IConfig */
 		$configManager = $container->query('OCP\IConfig');
 
-		self::$config['polling'] = $configManager->getSystemValue('ojsxc.polling',
+		self::$config['polling'] = $configManager->getSystemValue('njsxc.polling',
 			['sleep_time' => 1, 'max_cycles' => 10]);
 
 		self::$config['polling']['timeout'] = self::$config['polling']['sleep_time'] * self::$config['polling']['max_cycles'] + 5;
 
-		self::$config['use_memcache'] = $configManager->getSystemValue('ojsxc.use_memcache',
+		self::$config['use_memcache'] = $configManager->getSystemValue('njsxc.use_memcache',
 			['locking' => false]);
 
 
@@ -140,15 +140,15 @@ class Application extends App {
 			$cache = $c->getServer()->getMemCacheFactory();
 			$version = \OC::$server->getSession()->get('OC_Version');
 			if ($version[0] === 8 && $version[1] == 0){
-				$c->getServer()->getLogger()->warning('OJSXC is configured to use memcache as backend for locking, but ownCloud version 8  doesn\'t suppor this.');
+				$c->getServer()->getLogger()->warning('NJSXC is configured to use memcache as backend for locking, but ownCloud version 8  doesn\'t suppor this.');
 			} else if ($cache->isAvailable()) {
-				$memcache = $cache->create('ojsxc');
+				$memcache = $cache->create('njsxc');
 				return new MemLock(
 					$c->query('UserId'),
 					$memcache
 				);
 			} else {
-				$c->getServer()->getLogger()->warning('OJSXC is configured to use memcache as backend for locking, but no memcache is available.');
+				$c->getServer()->getLogger()->warning('NJSXC is configured to use memcache as backend for locking, but no memcache is available.');
 			}
 		}
 

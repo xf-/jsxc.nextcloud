@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\OJSXC\Db;
+namespace OCA\NJSXC\Db;
 
 use Sabre\Xml\Reader;
 use Sabre\Xml\Writer;
@@ -9,7 +9,7 @@ use Sabre\Xml\XmlSerializable;
 /**
  * Class Message
  *
- * @package OCA\OJSXC\Db
+ * @package OCA\NJSXC\Db
  * @method void setType($type)
  * @method void setValue(array $value)
  * @method string getType()

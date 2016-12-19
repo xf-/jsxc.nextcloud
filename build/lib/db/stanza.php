@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\OJSXC\Db;
+namespace OCA\NJSXC\Db;
 
 use \OCP\AppFramework\Db\Entity;
 use Sabre\Xml\Reader;
@@ -10,7 +10,7 @@ use Sabre\Xml\XmlSerializable;
 
 /**
  * Class Stanza
- * @package OCA\OJSXC\Db
+ * @package OCA\NJSXC\Db
  * @brief this class is used as the entity which is fetched from the stanza table OR extended by a specific stanza
  * for inserting into the stanza table
  * @method string getTo()

@@ -9,9 +9,9 @@ mysql -u root -e "grant all on oc_autotest.* to 'oc_autotest'@'localhost';"
 cd ..
 #ncdev setup core --dir owncloud --branch $BRANCH --no-history
 git clone https://github.com/nextcloud/server.git --recursive --depth 1 -b $BRANCH nextcloud
-mv jsxc.chat nextcloud/apps/ojsxc
-phpenv config-add nextcloud/apps/ojsxc/tests/travis/php.ini
+mv jsxc.chat nextcloud/apps/njsxc
+phpenv config-add nextcloud/apps/njsxc/tests/travis/php.ini
 cd nextcloud
 ./occ maintenance:install --database-name oc_autotest --database-user oc_autotest --database-pass --admin-user admin --admin-pass admin --database $DB
-./occ app:enable ojsxc
-cd apps/ojsxc
+./occ app:enable njsxc
+cd apps/njsxc

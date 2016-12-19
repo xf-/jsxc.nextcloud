@@ -1,13 +1,13 @@
 <?php
 
-namespace OCA\OJSXC;
+namespace OCA\NJSXC;
 
 use OCP\ICache;
 
 /**
  * Class MemLock
  *
- * @package OCA\OJSXC
+ * @package OCA\NJSXC
  */
 class MemLock implements ILock {
 

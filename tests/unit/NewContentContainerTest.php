@@ -1,9 +1,9 @@
 <?php
 
-namespace OCA\OJSXC;
+namespace OCA\NJSXC;
 
-use OCA\OJSXC\Db\Message;
-use OCA\OJSXC\Db\Stanza;
+use OCA\NJSXC\Db\Message;
+use OCA\NJSXC\Db\Stanza;
 use PHPUnit_Framework_TestCase;
 
 class NewContentContainerTest extends PHPUnit_Framework_TestCase {

@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\OJSXC\Db;
+namespace OCA\NJSXC\Db;
 
 use OCP\AppFramework\Db\DoesNotExistException;
 use OCP\AppFramework\Db\Entity;
@@ -12,7 +12,7 @@ use Sabre\Xml\Writer;
 /**
  * Class StanzaMapper
  *
- * @package OCA\OJSXC\Db
+ * @package OCA\NJSXC\Db
  */
 class StanzaMapper extends Mapper {
 
@@ -25,7 +25,7 @@ class StanzaMapper extends Mapper {
 	 * @param string $host
 	 */
 	public function __construct(IDb $db, $host) {
-		parent::__construct($db, 'ojsxc_stanzas');
+		parent::__construct($db, 'njsxc_stanzas');
 		$this->host = $host;
 	}
 
@@ -38,7 +38,7 @@ class StanzaMapper extends Mapper {
 		$writer->openMemory();
 		$writer->write($entity);
 		$xml = $writer->outputMemory();
-		$sql = "INSERT INTO `*PREFIX*ojsxc_stanzas` (`to`, `from`, `stanza`) VALUES(?,?,?)";
+		$sql = "INSERT INTO `*PREFIX*njsxc_stanzas` (`to`, `from`, `stanza`) VALUES(?,?,?)";
 		$q = $this->db->prepareQuery($sql);
 		$q->execute([$entity->getTo(), $entity->getFrom(), $xml]);
 	}
@@ -50,7 +50,7 @@ class StanzaMapper extends Mapper {
 	 * @throws DoesNotExistException
 	 */
 	public function findByTo($to){
-		$stmt = $this->execute("SELECT stanza, id FROM *PREFIX*ojsxc_stanzas WHERE `to`=?", [$to]);
+		$stmt = $this->execute("SELECT stanza, id FROM *PREFIX*njsxc_stanzas WHERE `to`=?", [$to]);
 		$results = [];
 		while($row = $stmt->fetch()){
 			$row['stanza'] = preg_replace('/to="([^"@]*)"/', "to=\"$1@" .$this->host ."\"", $row['stanza']);

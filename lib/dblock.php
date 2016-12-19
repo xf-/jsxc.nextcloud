@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\OJSXC;
+namespace OCA\NJSXC;
 
 use OCP\IConfig;
 use OCP\IDb;
@@ -8,7 +8,7 @@ use OCP\IDb;
 /**
  * Class DbLock
  *
- * @package OCA\OJSXC
+ * @package OCA\NJSXC
  */
 class DbLock implements ILock {
 
@@ -47,14 +47,14 @@ class DbLock implements ILock {
 	}
 
 	public function setLock() {
-		$this->config->setUserValue($this->userId, 'ojsxc', 'longpolling', $this->pollingId);
+		$this->config->setUserValue($this->userId, 'njsxc', 'longpolling', $this->pollingId);
 	}
 
 	/**
 	 * @return bool
 	 */
 	public function stillLocked() {
-		$sql = "SELECT `configvalue` FROM `*PREFIX*preferences` WHERE `userid` = ? AND `appid`='ojsxc' AND `configkey`='longpolling'";
+		$sql = "SELECT `configvalue` FROM `*PREFIX*preferences` WHERE `userid` = ? AND `appid`='njsxc' AND `configkey`='longpolling'";
 		$q = $this->con->prepareQuery($sql);
 		$r = $q->execute([$this->userId]);
 		$r = $r->fetchRow();

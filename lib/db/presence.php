@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\OJSXC\Db;
+namespace OCA\NJSXC\Db;
 
 use Sabre\Xml\XmlSerializable;
 use Sabre\Xml\XmlDeserializable;
@@ -12,10 +12,10 @@ use Sabre\Xml\Element\keyValue;
 /**
  * Class Presence
  *
- * This class is used for input AND output! It can be inserted into the ojsxc_presence table
- * and the ojsxc_stanza table. Use the presenceMapper and Stanzamapper respective.
+ * This class is used for input AND output! It can be inserted into the njsxc_presence table
+ * and the njsxc_stanza table. Use the presenceMapper and Stanzamapper respective.
  *
- * @package OCA\OJSXC\Db
+ * @package OCA\NJSXC\Db
  * @method void setUserid($userid)
  * @method void setPresence($presence)
  * @method void setLastActive($lastActive)

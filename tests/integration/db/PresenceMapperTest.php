@@ -1,10 +1,10 @@
 <?php
 
-namespace OCA\OJSXC\Db;
+namespace OCA\NJSXC\Db;
 
-use OCA\OJSXC\Db\Presence as PresenceEntity;
-use OCA\OJSXC\NewContentContainer;
-use OCA\OJSXC\Utility\MapperTestUtility;
+use OCA\NJSXC\Db\Presence as PresenceEntity;
+use OCA\NJSXC\NewContentContainer;
+use OCA\NJSXC\Utility\MapperTestUtility;
 
 $time = 0;
 
@@ -30,7 +30,7 @@ class PresenceMapperTest extends MapperTestUtility {
 	protected $newContentContainer;
 
 	protected function setUp() {
-		$this->entityName = 'OCA\OJSXC\Db\Presence';
+		$this->entityName = 'OCA\NJSXC\Db\Presence';
 		$this->mapperName = 'PresenceMapper';
 		parent::setUp();
 		$this->setValueOfPrivateProperty($this->mapper, 'updatedPresense', false);
@@ -393,7 +393,7 @@ class PresenceMapperTest extends MapperTestUtility {
 		$this->assertObjectDbResultsEqual($expNewContent, $newContent, ['userid', 'presence', 'lastActive']);
 		$this->assertEquals(0, $this->newContentContainer->getCount()); // stanzas will be removed once fetched
 
-		$stanzasToSend = $this->fetchAllAsArray('*PREFIX*ojsxc_stanzas');
+		$stanzasToSend = $this->fetchAllAsArray('*PREFIX*njsxc_stanzas');
 
 		$this->assertArrayDbResultsEqual($expStanzasToSend, $stanzasToSend, ['to', 'from', 'stanza']);
 

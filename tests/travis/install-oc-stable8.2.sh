@@ -9,9 +9,9 @@ mysql -u root -e "grant all on oc_autotest.* to 'oc_autotest'@'localhost';"
 # install owncloud
 cd ..
 git clone https://github.com/owncloud/core.git --recursive --depth 1 -b $BRANCH owncloud
-mv jsxc.chat owncloud/apps/ojsxc
-phpenv config-add owncloud/apps/ojsxc/tests/travis/php.ini
+mv jsxc.chat owncloud/apps/njsxc
+phpenv config-add owncloud/apps/njsxc/tests/travis/php.ini
 cd owncloud
 ./occ maintenance:install --database-name oc_autotest --database-user oc_autotest --database-pass --admin-user admin --admin-pass admin --database $DB
-./occ app:enable ojsxc
-cd apps/ojsxc
+./occ app:enable njsxc
+cd apps/njsxc

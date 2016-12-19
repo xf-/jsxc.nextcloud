@@ -1,5 +1,5 @@
 /*!
- * ojsxc v3.0.1 - 2016-10-28
+ * njsxc v3.0.1 - 2016-10-28
  * 
  * Copyright (c) 2016 Klaus Herberth <klaus@jsxc.org> <br>
  * Released under the MIT license

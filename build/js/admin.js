@@ -1,5 +1,5 @@
 /*!
- * ojsxc v3.0.1 - 2016-10-28
+ * njsxc v3.0.1 - 2016-10-28
  * 
  * Copyright (c) 2016 Klaus Herberth <klaus@jsxc.org> <br>
  * Released under the MIT license
@@ -106,13 +106,13 @@ $(document).ready(function() {
       });
    }
 
-   $('#ojsxc [name=serverType]').change(function(){
-      $('#ojsxc .ojsxc-external, #ojsxc .ojsxc-internal').hide();
-      $('#ojsxc .ojsxc-external, #ojsxc .ojsxc-internal').find('.required').removeAttr('required');
-      $('#ojsxc .ojsxc-' + $(this).val()).show();
-      $('#ojsxc .ojsxc-' + $(this).val()).find('.required').attr('required', 'true');
+   $('#njsxc [name=serverType]').change(function(){
+      $('#njsxc .njsxc-external, #njsxc .njsxc-internal').hide();
+      $('#njsxc .njsxc-external, #njsxc .njsxc-internal').find('.required').removeAttr('required');
+      $('#njsxc .njsxc-' + $(this).val()).show();
+      $('#njsxc .njsxc-' + $(this).val()).find('.required').attr('required', 'true');
    });
-   $('#ojsxc [name=serverType]:checked').change();
+   $('#njsxc [name=serverType]:checked').change();
 
    $('#boshUrl, #xmppDomain').on('input', function(){
       var self = $(this);
@@ -130,8 +130,8 @@ $(document).ready(function() {
          return;
       }
 
-      $('#ojsxc .boshUrl-msg').html('<div></div>');
-      var status = $('#ojsxc .boshUrl-msg div');
+      $('#njsxc .boshUrl-msg').html('<div></div>');
+      var status = $('#njsxc .boshUrl-msg div');
       status.html('<img src="' + jsxc.options.root + '/img/loading.gif" alt="wait" width="16px" height="16px" /> Testing BOSH Server...');
 
       // test only every 2 seconds
@@ -145,16 +145,16 @@ $(document).ready(function() {
       self.data('timeout', timeout);
    });
 
-   $('#ojsxc').submit(function(event) {
+   $('#njsxc').submit(function(event) {
       event.preventDefault();
 
       var post = $(this).serialize();
 
-      $('#ojsxc .msg').html('<div>');
-      var status = $('#ojsxc .msg div');
+      $('#njsxc .msg').html('<div>');
+      var status = $('#njsxc .msg div');
       status.html('<img src="' + jsxc.options.root + '/img/loading.gif" alt="wait" width="16px" height="16px" /> Saving...');
 
-      $.post(OC.filePath('ojsxc', 'ajax', 'setAdminSettings.php'), post, function(data) {
+      $.post(OC.filePath('njsxc', 'ajax', 'setAdminSettings.php'), post, function(data) {
          if (data) {
             status.addClass('jsxc_success').text('Settings saved. Please log out and in again.');
          } else {

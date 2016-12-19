@@ -1,9 +1,9 @@
 <?php
 
-namespace OCA\OJSXC\Db;
+namespace OCA\NJSXC\Db;
 
-use OCA\OJSXC\Db\Presence as PresenceEntity;
-use OCA\OJSXC\NewContentContainer;
+use OCA\NJSXC\Db\Presence as PresenceEntity;
+use OCA\NJSXC\NewContentContainer;
 use OCP\AppFramework\Db\Mapper;
 use OCP\IDBConnection;
 use Sabre\Xml\Service;
@@ -12,7 +12,7 @@ use OCP\IDb;
 /**
  * Class PresenceMapper
  *
- * @package OCA\OJSXC\Db
+ * @package OCA\NJSXC\Db
  */
 class PresenceMapper extends Mapper {
 
@@ -60,7 +60,7 @@ class PresenceMapper extends Mapper {
 	 * @param int $timeout
 	 */
 	public function __construct(IDb $db, $host, $userId, MessageMapper $messageMapper, NewContentContainer $newContentContainer, $timeout) {
-		parent::__construct($db, 'ojsxc_presence');
+		parent::__construct($db, 'njsxc_presence');
 		$this->host = $host;
 		$this->userId = $userId;
 		$this->messageMapper = $messageMapper;
@@ -75,13 +75,13 @@ class PresenceMapper extends Mapper {
 	 * @param PresenceEntity $stanza
 	 */
 	public function setPresence(PresenceEntity $stanza) {
-		$sql = "UPDATE `*PREFIX*ojsxc_presence` SET `presence`=?, `last_active`=? WHERE `userid` = ?";
+		$sql = "UPDATE `*PREFIX*njsxc_presence` SET `presence`=?, `last_active`=? WHERE `userid` = ?";
 		$q = $this->db->prepareQuery($sql);
 		$q->execute([$stanza->getPresence(), $stanza->getLastActive(), $stanza->getUserid()]);
 
 
 		if ($q->rowCount() === 0) {
-			$sql = "INSERT INTO `*PREFIX*ojsxc_presence` (`userid`, `presence`, `last_active`) VALUES(?,?,?)";
+			$sql = "INSERT INTO `*PREFIX*njsxc_presence` (`userid`, `presence`, `last_active`) VALUES(?,?,?)";
 			$q = $this->db->prepareQuery($sql);
 			$q->execute([$stanza->getUserid(), $stanza->getPresence(), $stanza->getLastActive()]);
 		}
@@ -93,7 +93,7 @@ class PresenceMapper extends Mapper {
 	 * @return array
 	 */
 	public function getPresences() {
-		$stmt = $this->execute("SELECT * FROM `*PREFIX*ojsxc_presence` WHERE `userid` != ?", [$this->userId]);
+		$stmt = $this->execute("SELECT * FROM `*PREFIX*njsxc_presence` WHERE `userid` != ?", [$this->userId]);
 		$results = [];
 		while($row = $stmt->fetch()){
 			$row['from'] = $row['userid'] . '@' . $this->host;
@@ -119,7 +119,7 @@ class PresenceMapper extends Mapper {
 		if (!self::$fetchedConnectedUsers) {
 			self::$fetchedConnectedUsers = true;
 
-			$stmt = $this->execute("SELECT `userid` FROM `*PREFIX*ojsxc_presence` WHERE `presence` != 'unavailable' AND `userid` != ?", [$this->userId]);
+			$stmt = $this->execute("SELECT `userid` FROM `*PREFIX*njsxc_presence` WHERE `presence` != 'unavailable' AND `userid` != ?", [$this->userId]);
 			$results = [];
 			while ($row = $stmt->fetch()) {
 				$results[] = $row['userid'];
@@ -140,7 +140,7 @@ class PresenceMapper extends Mapper {
 	public function setActive($user) {
 		// just do an update since we can assume the user is already online
 		// otherwise this wouldn't make sense
-		$sql = "UPDATE `*PREFIX*ojsxc_presence` SET `last_active`=? WHERE `userid` = ?";
+		$sql = "UPDATE `*PREFIX*njsxc_presence` SET `last_active`=? WHERE `userid` = ?";
 		$q = $this->db->prepareQuery($sql);
 		$q->execute([time(), $user]);
 	}
@@ -157,7 +157,7 @@ class PresenceMapper extends Mapper {
 			$time = time() - $this->timeout;
 
 			// first find all users who where offline for more than 30 seconds TOOD
-			$stmt = $this->execute("SELECT `userid` FROM `*PREFIX*ojsxc_presence` WHERE `presence` != 'unavailable' AND `userid` != ? AND `last_active` < ?",
+			$stmt = $this->execute("SELECT `userid` FROM `*PREFIX*njsxc_presence` WHERE `presence` != 'unavailable' AND `userid` != ? AND `last_active` < ?",
 				[$this->userId, $time]);
 
 			$inactiveUsers = [];
@@ -166,7 +166,7 @@ class PresenceMapper extends Mapper {
 			}
 			$stmt->closeCursor();
 
-			$this->execute("UPDATE `*PREFIX*ojsxc_presence` SET `presence` = 'unavailable' WHERE `presence` != 'unavailable' AND `userid` != ? AND `last_active` < ?", [$this->userId, $time]);
+			$this->execute("UPDATE `*PREFIX*njsxc_presence` SET `presence` = 'unavailable' WHERE `presence` != 'unavailable' AND `userid` != ? AND `last_active` < ?", [$this->userId, $time]);
 
 			// broadcast the new presence
 			$connectedUsers = $this->getConnectedUsers();

@@ -12,7 +12,7 @@ More information about features, supported protocols/browsers, screenshots and p
 
 ## Documentation
 - __Wiki__ https://github.com/jsxc/jsxc/wiki
-- __Installation guide__ https://github.com/jsxc/jsxc/wiki/Install-ojsxc-(owncloud)
+- __Installation guide__ https://github.com/jsxc/jsxc/wiki/Install-njsxc-(owncloud)
 - __Contributor Guide__ https://github.com/jsxc/jsxc/wiki/Contributor-Guide
 
 ## Translation

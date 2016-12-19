@@ -5,7 +5,7 @@
 	<overwrite>false</overwrite>
 	<charset>utf8</charset>
 	<table>
-		<name>*dbprefix*ojsxc_stanzas</name>
+		<name>*dbprefix*njsxc_stanzas</name>
 		<declaration>
 			<field>
 				<name>id</name>
@@ -35,7 +35,7 @@
 		</declaration>
 	</table>
 	<table>
-		<name>*dbprefix*ojsxc_presence</name>
+		<name>*dbprefix*njsxc_presence</name>
 		<declaration>
 			<field>
 				<name>id</name>

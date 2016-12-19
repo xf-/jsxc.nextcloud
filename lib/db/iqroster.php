@@ -1,6 +1,6 @@
 <?php
 
-namespace OCA\OJSXC\Db;
+namespace OCA\NJSXC\Db;
 
 use Sabre\Xml\Reader;
 use Sabre\Xml\Writer;
@@ -12,7 +12,7 @@ use Sabre\Xml\XmlSerializable;
  * This is an entity used by the IqHandler, but not stored/mapped in the database.
  * Class IQRoster
  *
- * @package OCA\OJSXC\Db
+ * @package OCA\NJSXC\Db
  * @method void setType($type)
  * @method void setQid($qid)
  * @method void setItems(array $items)

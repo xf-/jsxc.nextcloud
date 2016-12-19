@@ -1,16 +1,16 @@
 <?php
 
-namespace OCA\OJSXC\StanzaHandlers;
+namespace OCA\NJSXC\StanzaHandlers;
 
-use OCA\OJSXC\Db\MessageMapper;
+use OCA\NJSXC\Db\MessageMapper;
 use Sabre\Xml\Reader;
 use Sabre\Xml\Writer;
-use OCA\OJSXC\Db\Message as MessageEntity;
+use OCA\NJSXC\Db\Message as MessageEntity;
 
 /**
  * Class Message
  *
- * @package OCA\OJSXC\StanzaHandlers
+ * @package OCA\NJSXC\StanzaHandlers
  */
 class Message extends StanzaHandler {
 
